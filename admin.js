@@ -55,7 +55,7 @@ if (document.getElementById('debug-output')) {
 // ==========================================
 
 const isLoginPage = window.location.pathname.includes('login.html');
-const isDashboardPage = window.location.pathname.includes('dashboard.html');
+const isDashboardPage = window.location.pathname.includes('index.html');
 
 console.log('Current page - Login:', isLoginPage, 'Dashboard:', isDashboardPage);
 
@@ -84,7 +84,7 @@ onAuthStateChanged(auth, (user) => {
         if (isLoginPage) {
             console.log('On login page, redirecting to dashboard...');
             // Use absolute path for hosted sites
-            const dashboardPath = window.location.pathname.replace('login.html', 'dashboard.html');
+            const dashboardPath = window.location.pathname.replace('login.html', 'index.html');
             console.log('Redirecting to:', dashboardPath);
             window.location.href = dashboardPath;
         } else if (isDashboardPage) {
@@ -100,7 +100,7 @@ onAuthStateChanged(auth, (user) => {
         if (isDashboardPage) {
             console.log('On dashboard without auth, redirecting to login...');
             // Use absolute path for hosted sites
-            const loginPath = window.location.pathname.replace('dashboard.html', 'login.html');
+            const loginPath = window.location.pathname.replace('index.html', 'login.html');
             console.log('Redirecting to:', loginPath);
             window.location.href = loginPath;
         } else if (isLoginPage) {
@@ -221,7 +221,7 @@ function initLoginPage() {
             // Use multiple redirect strategies for compatibility
             const currentPath = window.location.pathname;
             const basePath = currentPath.substring(0, currentPath.lastIndexOf('/'));
-            const dashboardUrl = basePath + '/dashboard.html';
+            const dashboardUrl = basePath + '/index.html';
             
             console.log('Dashboard URL:', dashboardUrl);
             
